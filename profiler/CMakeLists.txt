@@ -52,6 +52,7 @@ function(Embed LIST NAME FILE)
         DEPENDS data embed ${CMAKE_CURRENT_LIST_DIR}/${FILE}
     )
     list(APPEND ${LIST} data/${NAME}.cpp)
+    set(${LIST} "${${LIST}}" PARENT_SCOPE)
     return(PROPAGATE ${LIST})
 endfunction()
 
@@ -233,6 +234,7 @@ if(WIN32)
         win32/Tracy.manifest
         win32/Tracy.rc
     )
+    message(ABC "${PROFILER_FILES}")
     add_executable(${PROJECT_NAME} WIN32 ${PROFILER_FILES} ${COMMON_FILES} ${SERVER_FILES})
     set_property(DIRECTORY ${CMAKE_CURRENT_LIST_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
 else()
