@@ -1,6 +1,3 @@
 
-console.log(`Importing tracy (Abytek)`);
-
-APT.Project.ApplyPrototype(
-    APT.Templates.CMake.ProjectPrototypes.Default
-);
+APT.Extensions.ProjectLinker.Setup(this);
+APT.Extensions.CMake.Setup(this);
